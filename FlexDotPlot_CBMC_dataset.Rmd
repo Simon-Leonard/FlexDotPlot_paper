@@ -146,7 +146,7 @@ dotplot = dot_plot(
   x.lab.pos="bottom",y.lab.pos="left", 
   cols.use=c("lightgrey","orange","red", "darkred"),size_legend="RNA", col_legend="ADT", shape_legend="Canonical marker ?", 
   shape.scale =12, text.size=3, 
-  plot.legend = TRUE,x.lab.rot = TRUE, 
+  plot.legend = TRUE, 
   size.breaks.number=4, color.breaks.number=4, shape.breaks.number=5
   , dend_x_var=c("RNA.avg.exp.scaled","ADT.avg.exp.scaled"), dend_y_var=c("RNA.avg.exp.scaled","ADT.avg.exp.scaled"), dist_method="euclidean", hclust_method="ward.D", do.return = TRUE)
 
@@ -157,7 +157,7 @@ dotplot = dot_plot(
   x.lab.pos="bottom",y.lab.pos="left", 
   cols.use=c("lightgrey","orange","red", "darkred"),size_legend="ADT.pct", col_legend="ADT.exp", shape_legend="Canonical marker ?", 
   shape.scale =12, text.size=3, 
-  plot.legend = TRUE,x.lab.rot = TRUE, 
+  plot.legend = TRUE, 
   size.breaks.number=5, color.breaks.number=4, shape.breaks.number=5
   , dend_x_var=c("RNA.avg.exp.scaled","ADT.avg.exp.scaled"), dend_y_var=c("RNA.avg.exp.scaled","ADT.avg.exp.scaled"), dist_method="euclidean", hclust_method="ward.D", do.return = TRUE)
 ```
