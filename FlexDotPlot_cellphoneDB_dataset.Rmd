@@ -64,6 +64,8 @@ for (i in 1:nrow(CellphoneDB_example_data)){
 res$clusters=factor(res$clusters, levels = unique(res$clusters))
 res$round_mean_gene=round(res$mean_gene, 1)
 
+res$log10pval=ifelse(res$log10pval<3, "<3", "\u2265 3")
+
 ```
 
 ### Dotplot with FlexDotPlot
@@ -74,7 +76,7 @@ dot_plot(res, shape_var = "pct_gene", col_var = 'log10pval',
          shape.scale = 14,
          color.breaks.values = c(0,1,2,3), shape.breaks.number = 5, size.breaks.number = 5,
          x.lab.pos = "bottom",vertical_coloring = c(NA,NA,"grey","grey"),
-         col_legend = "-log10(pval)", cols.use = c("white","blue"),
+         col_legend = "-log10(pval)", cols.use = c("grey90", "blue"),
          text.size = 3,
          transpose = T)
 ```
