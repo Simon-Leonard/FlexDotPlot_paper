@@ -188,22 +188,36 @@ d$mean_band_cnv_score=sapply(1:nrow(d), function(x){
   means$mean[means$band==d$band[x] & means$type==d$id[x]]
 })
 
-# Compute cnv status according to cnv scores
-d$cnv_status=ifelse(d$mean_band_cnv_score<0.95, 
-                    "down", ifelse(d$mean_band_cnv_score>1.05,
-                                   "up","normal"))
-d$cnv_status=factor(d$cnv_status, levels = c("up","normal","down"))
 ```
 
 Perform DotPlot
 
 ```{r message=FALSE, warning=FALSE, fig.width= 14, fig.height=6}
 library(FlexDotPlot)
+
+d$id=factor(d$id, levels=c("93","97","MGH54","MGH36","MGH53"))
+
+# Compute cnv status according to cnv scores
+d$cnv_status=ifelse(d$mean_band_cnv_score<0.95, 
+                    "down", ifelse(d$mean_band_cnv_score>1.05,
+                                   "up","normal"))
+d$cnv_status=factor(d$cnv_status, levels = c("up","normal","down"))
 dotplot=dot_plot(d, size_var = "pct.exp", size.breaks.number = 5,
          col_var = "avg.exp.scaled", cols.use = c("blue","white","red", "darkred"), color.breaks.values = c(-1,0,1),
          shape_var = "cnv_status", shape_use = c( "\u2BC5", "\u25CF", "\u2BC6"), 
-         x.lab.pos = "bottom", transpose = T, y.lab.size.factor = 0.3,
-         dend_x_var = c("avg.exp.scaled","pct.exp"), dend_y_var = c("avg.exp.scaled","pct.exp"), do.return = T)
+         x.lab.pos = "bottom", transpose = T, y.lab.size.factor = 1, display_max_sizes = F, 
+         dend_x_var = c("avg.exp.scaled","pct.exp"), do.return = T)
+
+
+d$cnv_status=ifelse(d$mean_band_cnv_score<0.95, 
+                    "-", ifelse(d$mean_band_cnv_score>1.05,
+                                    "+",NA))
+dotplot=dot_plot(d, size_var = "pct.exp", size.breaks.number = 5,
+                 col_var = "avg.exp.scaled", cols.use = c("blue","white","red", "darkred"), color.breaks.values = c(-1,0,1),
+                 text_var = "cnv_status", text.size = 6, display_max_sizes = F,
+                 x.lab.pos = "bottom", transpose = T, y.lab.size.factor = 1,
+                 dend_x_var = c("avg.exp.scaled","pct.exp"), do.return = T)
+
 ```
 ## Dotplot with Seurat (without cnv status) and same gene/sample ordering
 ```{r}
