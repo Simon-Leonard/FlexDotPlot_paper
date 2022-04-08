@@ -6,8 +6,9 @@ See also the [FlexDotPlot](https://github.com/Simon-Leonard/FlexDotPlot) package
 
 ## **Citation**
 
-Simon Leonard, Aurélie Lardenois, Karin Tarte, Antoine D Rolland, Frédéric Chalmel
+Simon Leonard, Aurélie Lardenois, Karin Tarte, Antoine Rolland, Frédéric Chalmel,
 
-FlexDotPlot: a universal and modular dot plot visualization tool for complex multifaceted data
+FlexDotPlot: a universal and modular dot plot visualization tool for complex multifaceted data,
 
-<https://doi.org/10.1101/2020.04.03.023655>
+Bioinformatics Advances, 2022, vbac019, <https://doi.org/10.1093/bioadv/vbac019>
+
